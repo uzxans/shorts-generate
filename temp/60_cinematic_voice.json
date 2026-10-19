@@ -1,0 +1,61 @@
+{
+  "sentences": [
+    {
+      "offset": 0.1,
+      "duration": 3.45,
+      "text": "Ты делаешь feature, и в папке уже изменены десять файлов."
+    },
+    {
+      "offset": 3.5,
+      "duration": 2.86,
+      "text": "В этот момент прилетает срочный hotfix."
+    },
+    {
+      "offset": 6.36,
+      "duration": 3.75,
+      "text": "Через stash и switch ты прячешь изменения и теряешь контекст."
+    },
+    {
+      "offset": 10.11,
+      "duration": 5.2,
+      "text": "git worktree решает иначе: создаёт рядом вторую рабочую папку из того же репозитория."
+    },
+    {
+      "offset": 15.31,
+      "duration": 3.74,
+      "text": "Команда: git worktree add ../app-hotfix -b hotfix/login."
+    },
+    {
+      "offset": 19.05,
+      "duration": 2.39,
+      "text": "Слева остаётся грязная feature."
+    },
+    {
+      "offset": 21.44,
+      "duration": 2.82,
+      "text": "Справа появляется чистая ветка hotfix."
+    },
+    {
+      "offset": 24.26,
+      "duration": 3.9,
+      "text": "История и Git-объекты общие, поэтому это не второй clone."
+    },
+    {
+      "offset": 28.16,
+      "duration": 4.5,
+      "text": "Открываешь два терминала: feature не трогаешь, hotfix исправляешь отдельно."
+    },
+    {
+      "offset": 32.66,
+      "duration": 3.54,
+      "text": "Важно: одну ветку нельзя открыть в двух worktree."
+    },
+    {
+      "offset": 36.2,
+      "duration": 3.75,
+      "text": "После merge убери папку: git worktree remove ../app-hotfix."
+    }
+  ],
+  "words": [],
+  "voiceover": "Ты делаешь feature, и в папке уже изменены десять файлов. В этот момент прилетает срочный hotfix. Через stash и switch ты прячешь изменения и теряешь контекст. git worktree решает иначе: создаёт рядом вторую рабочую папку из того же репозитория. Команда: git worktree add ../app-hotfix -b hotfix/login. Слева остаётся грязная feature. Справа появляется чистая ветка hotfix. История и Git-объекты общие, поэтому это не второй clone. Открываешь два терминала: feature не трогаешь, hotfix исправляешь отдельно. Важно: одну ветку нельзя открыть в двух worktree. После merge убери папку: git worktree remove ../app-hotfix."
+}

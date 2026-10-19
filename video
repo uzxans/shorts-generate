@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="/Users/tim/work/videoPro/shorts-generator"
+PY="$ROOT/venv/bin/python"
+INBOX="$ROOT/input"
+OUT="$ROOT/output"
+
+usage() {
+  cat <<'EOF'
+Usage:
+  video <youtube-url> [options]
+  video config
+  video test-yandex
+
+Options passed after the URL go to localize_video.py:
+  video https://www.youtube.com/shorts/Tn0FtbiHnvw --voice alena
+  video https://www.youtube.com/shorts/Tn0FtbiHnvw --burn-subs --voice alena
+
+EOF
+}
+
+if [[ $# -lt 1 || "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+  usage
+  exit 0
+fi
+
+if [[ "${1:-}" == "config" ]]; then
+  mkdir -p "$ROOT"
+  default_folder="b1g5bvee6ct1luuv53o9"
+  printf "YANDEX_FOLDER_ID [%s]: " "$default_folder"
+  read -r folder
+  folder="${folder:-$default_folder}"
+  printf "YANDEX_API_KEY: "
+  stty -echo
+  read -r api_key
+  stty echo
+  printf "\n"
+  if [[ -z "$api_key" ]]; then
+    echo "YANDEX_API_KEY is empty; config was not written." >&2
+    exit 2
+  fi
+  umask 077
+  {
+    printf "YANDEX_API_KEY=%s\n" "$api_key"
+    printf "YANDEX_FOLDER_ID=%s\n" "$folder"
+    printf "YANDEX_TTS_VOICE=alena\n"
+  } > "$ROOT/.env.local"
+  chmod 600 "$ROOT/.env.local"
+  echo "Saved: $ROOT/.env.local"
+  exit 0
+fi
+
+if [[ "${1:-}" == "test-yandex" ]]; then
+  "$PY" - <<'PY'
+from pathlib import Path
+import localize_video
+
+raw = Path("temp/yandex_test.raw")
+raw.parent.mkdir(exist_ok=True)
+try:
+    localize_video.synth_yandex("Проверка голоса.", raw, "alena", 1.0)
+except Exception as exc:
+    print(f"Yandex SpeechKit test failed: {exc}")
+    raise SystemExit(1)
+print("Yandex SpeechKit test OK")
+PY
+  exit $?
+fi
+
+if ! command -v yt-dlp >/dev/null 2>&1; then
+  cat >&2 <<'EOF'
+yt-dlp is not installed.
+Install it with:
+  brew install yt-dlp
+or:
+  python3 -m pip install --user yt-dlp
+EOF
+  exit 127
+fi
+
+url="$1"
+shift
+
+mkdir -p "$INBOX" "$OUT"
+cd "$ROOT"
+
+if [[ ! -f "$ROOT/.env.local" && -z "${YANDEX_API_KEY:-}" && -z "${YANDEX_IAM_TOKEN:-}" ]]; then
+  echo "Yandex credentials are not configured. Run: video config" >&2
+  exit 2
+fi
+
+echo "Downloading: $url"
+downloaded="$(
+  yt-dlp \
+    --no-playlist \
+    --restrict-filenames \
+    --merge-output-format mp4 \
+    --print after_move:filepath \
+    -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" \
+    -o "$INBOX/%(title).80s_%(id)s.%(ext)s" \
+    "$url" | tail -n 1
+)"
+
+if [[ -z "$downloaded" || ! -f "$downloaded" ]]; then
+  echo "Download failed or yt-dlp did not return a file path." >&2
+  exit 1
+fi
+
+base="$(basename "$downloaded")"
+stem="${base%.*}"
+safe_stem="$(printf '%s' "$stem" | tr -cd '[:alnum:]_.-')"
+output="$OUT/${safe_stem}_ru_localized.mp4"
+
+echo "Localizing: $downloaded"
+exec "$PY" "$ROOT/localize_video.py" \
+  --input "$downloaded" \
+  --voice "${YANDEX_TTS_VOICE:-alena}" \
+  --output "$output" \
+  "$@"

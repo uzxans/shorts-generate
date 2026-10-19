@@ -1,0 +1,50 @@
+[
+  {
+    "scene": 1,
+    "start": 0.0,
+    "end": 5.0,
+    "source_duration": 4.632,
+    "speed": 1.0,
+    "voiceover": "clamp задаёт минимум, предпочтительное значение и максимум."
+  },
+  {
+    "scene": 2,
+    "start": 5.0,
+    "end": 17.0,
+    "source_duration": 4.872,
+    "speed": 1.0,
+    "voiceover": "Заголовок растёт вместе с окном, но границы защищают макет."
+  },
+  {
+    "scene": 3,
+    "start": 17.0,
+    "end": 32.0,
+    "source_duration": 5.52,
+    "speed": 1.0,
+    "voiceover": "Формула использует viewport, а одно правило заменяет несколько медиазапросов."
+  },
+  {
+    "scene": 4,
+    "start": 32.0,
+    "end": 45.0,
+    "source_duration": 3.696,
+    "speed": 1.0,
+    "voiceover": "Размер меняется плавно при изменении ширины."
+  },
+  {
+    "scene": 5,
+    "start": 45.0,
+    "end": 55.0,
+    "source_duration": 3.6,
+    "speed": 1.0,
+    "voiceover": "Используй clamp для type, gap и padding."
+  },
+  {
+    "scene": 6,
+    "start": 55.0,
+    "end": 59.041667000000004,
+    "source_duration": 3.672,
+    "speed": 1.0,
+    "voiceover": "Подпишись, чтобы не пропустить новые разборы."
+  }
+]

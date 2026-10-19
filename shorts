@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="/Users/tim/work/videoPro/shorts-generator"
+PY="$ROOT/venv/bin/python"
+
+usage() {
+  cat <<'EOF'
+Usage:
+  shorts 1                         render topic id 1
+  shorts 1 --max-duration 60       render up to 60 seconds
+  shorts 1 --max-duration 0        disable duration scaling
+  shorts 1,2,3                     render several topic ids
+  shorts all                       render all topics
+  shorts localize input.mp4        localize video with Yandex SpeechKit
+  shorts localize input.mp4 --burn-subs --voice alena
+
+EOF
+}
+
+if [[ $# -lt 1 || "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+  if [[ $# -lt 1 ]]; then
+    printf "номер темы (или 'all', или 'localize'): "
+    read -r reply
+    set -- "$reply"
+  else
+    usage
+    exit 0
+  fi
+fi
+
+cd "$ROOT"
+
+case "$1" in
+  localize)
+    shift
+    if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+      exec "$PY" "$ROOT/localize_video.py" --help
+    fi
+    if [[ $# -lt 1 ]]; then
+      echo "Usage: shorts localize input.mp4 [localize_video.py options]" >&2
+      exit 2
+    fi
+    input="$1"
+    shift
+    exec "$PY" "$ROOT/localize_video.py" --input "$input" "$@"
+    ;;
+  all)
+    shift
+    exec "$PY" "$ROOT/render.py" --all "$@"
+    ;;
+  *,*)
+    topics="$1"
+    shift
+    exec "$PY" "$ROOT/render.py" --topics "$topics" "$@"
+    ;;
+  *)
+    topic="$1"
+    shift
+    if [[ "$topic" =~ ^[0-9]+$ ]]; then
+      "$PY" "$ROOT/render.py" --topic "$topic" "$@"
+      if command -v open >/dev/null 2>&1; then
+        open "$ROOT/output/${topic}_"*.mp4 2>/dev/null || true
+      fi
+      exit 0
+    fi
+    echo "Unknown command: $topic" >&2
+    usage >&2
+    exit 2
+    ;;
+esac

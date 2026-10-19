@@ -1,0 +1,81 @@
+<template>
+<style>
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;color:#F4F7FC;font-family:Montserrat,sans-serif}
+.f02-ground{position:absolute;inset:0;background:#080D16}
+.f02-grid{position:absolute;left:80px;top:475px;width:890px;height:930px;background-image:linear-gradient(#409cff0b 1px,transparent 1px),linear-gradient(90deg,#409cff0b 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(transparent,#000 15%,#000 80%,transparent)}
+.f02-title{position:absolute;left:80px;top:250px;margin:0;font-size:88px;line-height:1.08;font-weight:800;letter-spacing:-4px}
+.f02-title span{display:block;color:#409CFF}
+.f02-diagram{position:absolute;left:80px;top:525px;width:890px;height:800px;transform-origin:50% 45%}
+.f02-server{position:absolute;left:95px;top:0;width:700px;height:310px}
+.f02-slab{position:absolute;width:690px;height:107px;left:0;border:2px solid #409CFF;border-radius:17px;background:linear-gradient(135deg,#1A3654,#101F32);box-shadow:12px 12px 0 #0D1726,13px 13px 0 #234263;display:flex;align-items:center;padding:0 34px;box-sizing:border-box}
+.f02-slab:nth-child(1){top:180px}.f02-slab:nth-child(2){top:100px}.f02-slab:nth-child(3){top:20px}
+.f02-dot{width:12px;height:12px;border-radius:50%;background:#409CFF;box-shadow:0 0 22px #409cff88;margin-right:17px}
+.f02-servername{font-size:38px;font-weight:800;letter-spacing:3px;margin-left:23px}
+.f02-lines{margin-left:auto;width:100px;height:18px;border-top:3px solid #409CFF;border-bottom:3px solid #409CFF;opacity:.55}
+.f02-caption{position:absolute;top:325px;width:100%;text-align:center;font-size:36px;font-weight:600;color:#A5B6CD}
+.f02-path{position:absolute;top:375px;left:438px;width:3px;height:144px;background:#294E75;transform-origin:50% 0}
+.f02-arrow{position:absolute;left:427px;top:498px;width:22px;height:22px;border-right:3px solid #409CFF;border-bottom:3px solid #409CFF;transform:rotate(45deg)}
+.f02-packet{position:absolute;left:411px;top:386px;width:58px;height:58px;border-radius:14px;background:#409CFF;box-shadow:0 0 36px #409cff77;display:grid;place-items:center;font-size:27px;font-weight:800;color:#080D16}
+.f02-browser{position:absolute;left:42px;top:545px;width:806px;height:280px;border:2px solid #375272;border-radius:24px;background:#111F31;box-sizing:border-box;overflow:hidden}
+.f02-browserbar{height:58px;border-bottom:1px solid #375272;display:flex;align-items:center;gap:10px;padding:0 25px;color:#A5B6CD;font-size:25px;font-weight:600}
+.f02-browserbar i{width:10px;height:10px;background:#375272;border-radius:50%}.f02-browserbar span{margin-left:16px;letter-spacing:2px}
+.f02-ui{position:absolute;left:32px;top:96px;width:310px;height:126px;border-radius:13px;background:#1E344D;border:1px solid #2D4B6C}
+.f02-ui:before{content:'';position:absolute;left:23px;top:25px;width:206px;height:13px;background:#45617D;border-radius:8px}.f02-ui:after{content:'';position:absolute;left:23px;top:54px;width:258px;height:10px;background:#304C67;border-radius:8px}
+.f02-button{position:absolute;right:34px;top:105px;width:346px;height:96px;border-radius:18px;background:#21364E;color:#A5B6CD;font-size:37px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.f02-ring{position:absolute;right:23px;top:94px;width:368px;height:118px;border-radius:28px;border:2px solid #C5F86B;box-sizing:border-box}
+.f02-check{font-size:44px;margin-left:14px;color:#080D16}
+.f02-insight{position:absolute;left:80px;top:1390px;font-size:42px;line-height:1.25;font-weight:700;letter-spacing:-1px}
+.f02-insight span{color:#C5F86B}
+.f02-support{position:absolute;left:80px;top:1510px;font-size:29px;font-weight:500;color:#A5B6CD}
+</style>
+<div id="root" data-composition-id="f02" data-width="1080" data-height="1920" data-duration="10">
+<div id="f02-ground" class="clip f02-ground" data-start="0" data-duration="10" data-track-index="0"></div>
+<div class="f02-grid" id="f02-grid"></div>
+<h1 class="f02-title" id="f02-title">Как работают<span>RSC</span></h1>
+<div class="f02-diagram" id="f02-diagram">
+<div class="f02-server" id="f02-server">
+<div class="f02-slab" id="f02-slab-back"><i class="f02-dot"></i><i class="f02-dot"></i><div class="f02-lines"></div></div>
+<div class="f02-slab" id="f02-slab-mid"><i class="f02-dot"></i><i class="f02-dot"></i><div class="f02-lines"></div></div>
+<div class="f02-slab" id="f02-slab-front"><i class="f02-dot"></i><i class="f02-dot"></i><span class="f02-servername">СЕРВЕР</span><div class="f02-lines"></div></div>
+</div>
+<div class="f02-caption" id="f02-caption">Данные + компоненты</div>
+<div class="f02-path" id="f02-path"></div><div class="f02-arrow" id="f02-arrow"></div>
+<div class="f02-packet" id="f02-packet">UI</div>
+<div class="f02-browser" id="f02-browser">
+<div class="f02-browserbar"><i></i><i></i><i></i><span>БРАУЗЕР</span></div>
+<div class="f02-ui" id="f02-ui"></div>
+<div class="f02-ring" id="f02-ring"></div>
+<div class="f02-button" id="f02-button">Нажать<span class="f02-check" id="f02-check">✓</span></div>
+</div>
+</div>
+<div class="f02-insight" id="f02-insight">Интерактивность —<br><span>в браузере</span></div>
+<div class="f02-support" id="f02-support">Меньше клиентского JavaScript</div>
+</div>
+<script>
+(function(){
+const tl=gsap.timeline({paused:true});
+window.__timelines=window.__timelines||{};window.__timelines['f02']=tl;
+tl.fromTo('#f02-title',{y:35,opacity:0},{y:0,opacity:1,duration:.65,ease:'power3.out'},0);
+tl.fromTo('#f02-grid',{opacity:0},{opacity:1,duration:1.5},.25);
+tl.fromTo('#f02-diagram',{scale:.965,y:10},{scale:1,y:0,duration:9.5,ease:'sine.inOut'},.5);
+tl.fromTo('#f02-slab-back',{y:55,opacity:0},{y:0,opacity:1,duration:.7,ease:'power3.out'},1.65);
+tl.fromTo('#f02-slab-mid',{y:65,opacity:0},{y:0,opacity:1,duration:.7,ease:'power3.out'},1.95);
+tl.fromTo('#f02-slab-front',{y:75,opacity:0},{y:0,opacity:1,duration:.8,ease:'power3.out'},2.25);
+tl.fromTo('#f02-caption',{y:25,opacity:0},{y:0,opacity:1,duration:.55},3.15);
+tl.fromTo('#f02-path',{scaleY:0},{scaleY:1,duration:.7,ease:'power2.inOut'},4.2);
+tl.fromTo('#f02-arrow',{opacity:0},{opacity:1,duration:.3},4.7);
+tl.fromTo('#f02-browser',{y:35,opacity:0},{y:0,opacity:1,duration:.7,ease:'power3.out'},4.9);
+tl.fromTo('#f02-packet',{y:0,scale:.6,opacity:0},{y:0,scale:1,opacity:1,duration:.3},4.55);
+tl.to('#f02-packet',{y:110,duration:1.3,ease:'power2.inOut'},4.9);
+tl.to('#f02-packet',{scale:.45,opacity:0,duration:.28},6.1);
+tl.fromTo('#f02-ui',{scaleX:.8,opacity:0},{scaleX:1,opacity:1,duration:.5,ease:'power2.out'},6.25);
+tl.fromTo('#f02-button',{opacity:0,y:15},{opacity:1,y:0,duration:.45},6.65);
+tl.fromTo('#f02-check',{scale:0,opacity:0},{scale:1,opacity:1,duration:.4,ease:'back.out(1.5)'},7.5);
+tl.to('#f02-button',{backgroundColor:'#C5F86B',color:'#080D16',duration:.4},7.3);
+tl.fromTo('#f02-ring',{scale:.92,opacity:0},{scale:1.06,opacity:.6,duration:.45},7.4);
+tl.to('#f02-ring',{scale:1.12,opacity:0,duration:.5},7.87);
+tl.fromTo('#f02-insight',{y:25,opacity:0},{y:0,opacity:1,duration:.6,ease:'power3.out'},7.65);
+tl.fromTo('#f02-support',{y:15,opacity:0},{y:0,opacity:1,duration:.55},8.8);
+})();
+</script>
+</template>

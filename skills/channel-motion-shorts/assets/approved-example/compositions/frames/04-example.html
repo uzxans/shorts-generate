@@ -1,0 +1,32 @@
+<template>
+<style>
+@font-face{font-family:Montserrat;src:url('public/display.ttf')}#root{width:1080px;height:1920px;position:relative;overflow:hidden;color:#F4F7FC;font-family:Montserrat,sans-serif} .f04-ground{position:absolute;inset:0;background:#080D16}.f04-grid{position:absolute;inset:0;background-image:linear-gradient(#409CFF0b 1px,transparent 1px),linear-gradient(90deg,#409CFF0b 1px,transparent 1px);background-size:90px 90px}.f04-label{position:absolute;top:250px;left:82px;font-size:26px;letter-spacing:2px;color:#A5B6CD}.f04-title{position:absolute;left:80px;top:327px;margin:0;font-size:99px;line-height:1.02;letter-spacing:-5px;font-weight:800}.f04-shop{position:absolute;left:125px;top:615px;width:830px;height:670px;background:linear-gradient(145deg,#192B43,#0D1725);border:2px solid #409CFF70;border-radius:30px;box-shadow:0 40px 80px #0008;overflow:hidden;transform-origin:50% 0}.f04-topbar{height:93px;border-bottom:1px solid #A5B6CD30;display:flex;align-items:center;justify-content:space-between;padding:0 38px;font-size:31px;font-weight:600}.f04-dots{display:flex;gap:12px}.f04-dots i{height:10px;width:10px;border-radius:50%;background:#409CFF}.f04-product{position:absolute;left:225px;top:125px;width:380px;height:320px}.f04-arch{position:absolute;left:60px;top:20px;width:240px;height:240px;border:27px solid #409CFF;border-bottom:none;border-radius:150px 150px 15px 15px;box-shadow:inset 9px 8px 0 #A5B6CD55,7px -4px 0 #1E5C9D}.f04-ear{position:absolute;width:73px;height:145px;background:linear-gradient(100deg,#B4D9FF,#409CFF 48%,#1F497C);border-radius:26px;top:160px;box-shadow:7px 10px 0 #061323}.f04-left{left:36px}.f04-right{right:19px}.f04-product-line{position:absolute;left:42px;right:42px;top:485px;display:flex;justify-content:space-between;align-items:center;font-size:35px}.f04-cart{background:#C5F86B;color:#101A0B;padding:21px 28px;border-radius:13px;font-size:31px;font-weight:800}.f04-live{position:absolute;left:42px;top:590px;color:#C5F86B;font-size:25px;letter-spacing:1px}.f04-live:before{content:'';display:inline-block;width:12px;height:12px;border-radius:50%;background:#C5F86B;margin-right:14px}.f04-path{position:absolute;left:537px;top:1000px;width:3px;height:146px;background:#FF9562;transform-origin:top}.f04-dependency{position:absolute;left:125px;top:1120px;width:830px;height:172px;border:2px solid #FF9562;background:linear-gradient(130deg,#352820,#161E2B);border-radius:23px;display:flex;align-items:center;gap:28px;padding:0 35px;box-sizing:border-box}.f04-server{flex-shrink:0;width:72px;height:85px}.f04-server i{display:block;border:2px solid #FF9562;height:29px;margin-bottom:10px;border-radius:6px;position:relative}.f04-server i:after{content:'';position:absolute;right:9px;top:10px;width:6px;height:6px;border-radius:50%;background:#FF9562}.f04-deptext{font-size:36px;font-weight:700;color:#FF9562;line-height:1.3}.f04-takeaway{position:absolute;left:80px;top:1370px;font-size:65px;font-weight:800;letter-spacing:-2px;white-space:nowrap}.f04-neq{color:#FF9562;display:inline-block}.f04-scope{position:absolute;left:83px;top:1480px;font-size:25px;color:#A5B6CD;max-width:880px}
+</style>
+<div id="root" data-composition-id="f04" data-width="1080" data-height="1920">
+<div id="f04-ground" class="clip f04-ground" data-start="0" data-duration="10" data-track-index="0"><div class="f04-grid"></div></div>
+<div id="f04-label" class="f04-label">ПРИМЕР · NEXT.JS APP ROUTER</div>
+<h1 id="f04-title" class="f04-title">Витрина<br>работает.</h1>
+<div id="f04-path" class="f04-path"></div>
+<div id="f04-shop" class="f04-shop"><div class="f04-topbar"><span>Каталог</span><div class="f04-dots"><i></i><i></i><i></i></div></div><div id="f04-product" class="f04-product"><div class="f04-arch"></div><div class="f04-ear f04-left"></div><div class="f04-ear f04-right"></div></div><div class="f04-product-line"><span>Studio / 01</span><span id="f04-cart" class="f04-cart">В корзину +</span></div><div id="f04-live" class="f04-live">ИНТЕРФЕЙС ДОСТУПЕН</div></div>
+<div id="f04-dependency" class="f04-dependency"><div class="f04-server"><i></i><i></i></div><div class="f04-deptext">Уязвимый<br>RSC-пакет</div></div>
+<div id="f04-takeaway" class="f04-takeaway">Работает <span id="f04-neq" class="f04-neq">≠</span> защищено</div>
+<div id="f04-scope" class="f04-scope">Пример приложения с уязвимой зависимостью</div>
+</div>
+<script>
+const tl=gsap.timeline({paused:true});
+tl.fromTo('#f04-label',{opacity:0,y:14},{opacity:1,y:0,duration:.4},.08)
+.fromTo('#f04-title',{opacity:0,y:50},{opacity:1,y:0,duration:.65,ease:'power3.out'},.05)
+.fromTo('#f04-shop',{opacity:0,y:120,rotationX:9,scale:.9},{opacity:1,y:0,rotationX:0,scale:1,duration:.85,ease:'power3.out'},1.8)
+.fromTo('#f04-product',{y:28,rotation:-9,opacity:0},{y:0,rotation:0,opacity:1,duration:1,ease:'power3.out'},2.15)
+.fromTo('#f04-cart',{scale:.8,opacity:0},{scale:1,opacity:1,duration:.5,ease:'back.out(1.4)'},3.1)
+.fromTo('#f04-live',{opacity:0,y:12},{opacity:1,y:0,duration:.5},3.65)
+.to('#f04-shop',{y:-75,scale:.83,duration:1.1,ease:'power3.inOut'},4.5)
+.fromTo('#f04-path',{scaleY:0,opacity:0},{scaleY:1,opacity:1,duration:.55,ease:'power2.out'},5.1)
+.fromTo('#f04-dependency',{y:65,opacity:0},{y:0,opacity:1,duration:.7,ease:'power3.out'},5.5)
+.fromTo('#f04-takeaway',{y:40,opacity:0},{y:0,opacity:1,duration:.7,ease:'power3.out'},7.15)
+.fromTo('#f04-neq',{scale:1.6},{scale:1,duration:.7,ease:'power3.out'},7.35)
+.fromTo('#f04-scope',{y:15,opacity:0},{y:0,opacity:1,duration:.6},8.3)
+.to('#f04-product',{y:-6,rotation:2,duration:2,ease:'sine.inOut'},7.8);
+window.__timelines=window.__timelines||{};window.__timelines['f04']=tl;
+</script>
+</template>

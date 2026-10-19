@@ -1,0 +1,44 @@
+{
+  "key": "3efaf08e0148c4842b0deb98",
+  "text": "Используй clamp для type, gap и padding.",
+  "voice": "ru-RU-DmitryNeural",
+  "rate": "+5%",
+  "duration": 3.6,
+  "words": [
+    {
+      "text": "Используй",
+      "start": 0.1,
+      "end": 0.742875
+    },
+    {
+      "text": "clamp",
+      "start": 0.742875,
+      "end": 1.076208
+    },
+    {
+      "text": "для",
+      "start": 1.076208,
+      "end": 1.302374
+    },
+    {
+      "text": "type",
+      "start": 1.302375,
+      "end": 1.635708
+    },
+    {
+      "text": "gap",
+      "start": 1.861916,
+      "end": 2.195249
+    },
+    {
+      "text": "и",
+      "start": 2.19525,
+      "end": 2.278583
+    },
+    {
+      "text": "padding",
+      "start": 2.278583,
+      "end": 2.790499
+    }
+  ]
+}

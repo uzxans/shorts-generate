@@ -1,0 +1,4 @@
+interface:
+  display_name: "Видео для канала · Motion Shorts"
+  short_description: "Обучающие Shorts и Reels с голосом, музыкой и CTA"
+  default_prompt: "Используй $channel-motion-shorts, чтобы создать обучающее видео по новой теме в моём стиле с озвучкой, музыкой и frog.mp4 в финале."

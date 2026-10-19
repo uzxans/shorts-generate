@@ -1,0 +1,73 @@
+<template>
+<style>
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;color:#F4F7FC;font-family:Montserrat,sans-serif}
+.f03-bg{position:absolute;inset:0;background:#080D16}
+.f03-content{position:absolute;inset:0}
+.f03-title{position:absolute;left:80px;top:257px;margin:0;font-size:92px;font-weight:800;line-height:1.02;letter-spacing:-5px;text-transform:uppercase}
+.f03-meta{position:absolute;left:84px;top:477px;color:#A5B6CD;font-size:27px;font-weight:600;letter-spacing:.6px}
+.f03-requestLabel{position:absolute;left:85px;top:603px;font-size:36px;font-weight:650;color:#FF9562}
+.f03-wire{position:absolute;left:80px;top:640px;width:920px;height:610px;overflow:visible}
+.f03-server{position:absolute;left:200px;top:842px;width:680px;height:367px;border:2px solid #409CFF;border-radius:28px;background:#111F31;box-shadow:0 0 80px #409cff0d}
+.f03-serverTop{height:88px;padding:25px 33px;box-sizing:border-box;border-bottom:1px solid #409cff40;font-size:31px;font-weight:700;letter-spacing:2px}
+.f03-indicator{position:absolute;right:35px;top:39px;width:13px;height:13px;border-radius:50%;background:#409CFF;box-shadow:0 0 21px #409cff80}
+.f03-parser{position:absolute;left:60px;top:146px;width:556px;height:132px;border-radius:17px;background:#080D16;display:flex;align-items:center;justify-content:center;gap:22px;font-size:35px;font-weight:650;color:#A5B6CD}
+.f03-parserCode{color:#409CFF;font-size:48px;font-weight:500;letter-spacing:-7px;padding-right:10px}
+.f03-rack{position:absolute;left:35px;bottom:25px;display:flex;gap:12px}
+.f03-rack i{display:block;width:98px;height:5px;border-radius:3px;background:#409cff32}
+.f03-packet{position:absolute;left:460px;top:656px;width:156px;height:105px;border:2px solid #FF9562;background:#271d1b;border-radius:16px;box-shadow:0 0 50px #ff956224;display:flex;justify-content:center;align-items:center;font-size:28px;font-weight:800;color:#FF9562;letter-spacing:1px}
+.f03-boundary{position:absolute;left:239px;top:962px;width:604px;height:182px;overflow:visible}
+.f03-warning{position:absolute;left:765px;top:806px;width:79px;height:79px;border:2px solid #FF9562;background:#271d1b;border-radius:22px;display:flex;align-items:center;justify-content:center;color:#FF9562;font-size:60px;font-weight:800}
+.f03-result{position:absolute;left:84px;top:1275px;display:flex;gap:32px;align-items:center}
+.f03-rce{font-size:103px;font-weight:800;letter-spacing:-5px;color:#FF9562;line-height:1}
+.f03-effect{font-size:37px;line-height:1.22;font-weight:750;letter-spacing:-1px}
+.f03-severity{position:absolute;left:86px;top:1418px;color:#FF9562;font-size:28px;font-weight:700}
+.f03-qualifier{position:absolute;left:86px;top:1480px;color:#A5B6CD;font-size:27px;font-weight:500}
+</style>
+<div id="root" data-composition-id="f03" data-width="1080" data-height="1920">
+<div id="f03-ground" class="clip f03-bg" data-start="0" data-duration="10" data-track-index="0"></div>
+<div class="f03-content" id="f03-content">
+<h1 class="f03-title" id="f03-title">Где возник<br>риск</h1>
+<div class="f03-meta" id="f03-meta">CVE-2025-55182 · декабрь 2025</div>
+<div class="f03-requestLabel" id="f03-requestLabel">Запрос без входа</div>
+<svg class="f03-wire" viewBox="0 0 920 610"><path d="M460 104V203" fill="none" stroke="#409CFF" stroke-width="3" opacity=".35"/><path id="f03-dataPath" d="M460 104V203" fill="none" stroke="#FF9562" stroke-width="5" stroke-dasharray="99"/><path d="m450 186 10 17 10-17" fill="none" stroke="#409CFF" stroke-width="3"/></svg>
+<div class="f03-server" id="f03-server">
+<div class="f03-serverTop">SERVER</div><span class="f03-indicator" id="f03-indicator"></span>
+<div class="f03-parser"><span class="f03-parserCode">{ }</span>Разбор запроса</div>
+<div class="f03-rack"><i></i><i></i><i></i><i></i></div>
+</div>
+<svg class="f03-boundary" viewBox="0 0 604 182">
+<path id="f03-boundaryLeft" d="M298 3H26Q3 3 3 26V156Q3 179 26 179H298" fill="none" stroke="#FF9562" stroke-width="3" stroke-dasharray="12 9"/>
+<path id="f03-boundaryRight" d="M306 3H578Q601 3 601 26V156Q601 179 578 179H306" fill="none" stroke="#FF9562" stroke-width="3" stroke-dasharray="12 9"/>
+</svg>
+<div class="f03-packet" id="f03-packet">HTTP</div>
+<div class="f03-warning" id="f03-warning">!</div>
+<div class="f03-result" id="f03-result"><div class="f03-rce">RCE</div><div class="f03-effect">Выполнение кода<br>на сервере</div></div>
+<div class="f03-severity" id="f03-severity">Критическая уязвимость</div>
+<div class="f03-qualifier" id="f03-qualifier">В уязвимых версиях RSC</div>
+</div>
+</div>
+<script>
+(function(){
+const t=gsap.timeline({paused:true});
+window.__timelines=window.__timelines||{};window.__timelines['f03']=t;
+t.fromTo('#f03-title',{y:38,opacity:0},{y:0,opacity:1,duration:.65,ease:'power3.out'},0)
+ .fromTo('#f03-meta',{y:16,opacity:0},{y:0,opacity:1,duration:.5,ease:'power2.out'},.48)
+ .fromTo('#f03-server',{y:42,scale:.96,opacity:0},{y:0,scale:1,opacity:1,duration:.8,ease:'power3.out'},.65)
+ .fromTo('#f03-requestLabel',{x:-30,opacity:0},{x:0,opacity:1,duration:.5,ease:'power3.out'},2)
+ .fromTo('#f03-packet',{y:-35,opacity:0,scale:.85},{y:0,opacity:1,scale:1,duration:.5,ease:'power3.out'},2.2)
+ .fromTo('#f03-dataPath',{strokeDashoffset:99,opacity:0},{strokeDashoffset:0,opacity:1,duration:.5,ease:'power1.in'},2.8)
+ .to('#f03-packet',{y:164,scale:.66,duration:.8,ease:'power2.inOut'},3.1)
+ .fromTo('#f03-boundaryLeft, #f03-boundaryRight',{opacity:0},{opacity:1,duration:.45},4)
+ .to('#f03-packet',{y:260,scale:.25,opacity:0,duration:.55,ease:'power2.in'},4.1)
+ .to('#f03-boundaryLeft',{x:-19,rotation:-2,transformOrigin:'0% 50%',duration:.55,ease:'power3.out'},4.85)
+ .to('#f03-boundaryRight',{x:19,rotation:2,transformOrigin:'100% 50%',duration:.55,ease:'power3.out'},4.85)
+ .to('#f03-server',{borderColor:'#FF9562',boxShadow:'0 0 80px #ff956226',duration:.65},5.1)
+ .to('#f03-indicator',{backgroundColor:'#FF9562',duration:.3},5.1)
+ .fromTo('#f03-warning',{scale:.4,opacity:0,rotation:-12},{scale:1,opacity:1,rotation:0,duration:.55,ease:'back.out(1.4)'},5.55)
+ .fromTo('#f03-result',{y:28,opacity:0},{y:0,opacity:1,duration:.7,ease:'power3.out'},7)
+ .fromTo('#f03-severity',{x:-22,opacity:0},{x:0,opacity:1,duration:.55,ease:'power3.out'},8)
+ .fromTo('#f03-qualifier',{y:15,opacity:0},{y:0,opacity:1,duration:.55,ease:'power3.out'},8.65)
+ .to('#f03-content',{scale:1.008,transformOrigin:'50% 50%',duration:10,ease:'none'},0);
+})();
+</script>
+</template>

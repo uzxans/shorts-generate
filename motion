@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="/Users/tim/work/videoPro/shorts-generator"
+PY="$ROOT/venv/bin/python"
+
+usage() {
+  cat <<'EOF'
+Usage:
+  motion --topic 36                 render topic by flag
+  motion 36                         render topic 36 with the new motion style
+  motion 36 --speed 1.15            render topic 36 with faster Yandex voice
+  motion 36 --no-music              render topic 36 without background music
+  motion 31                         render another topic with the classic generator
+  motion 31,32                      render several classic topics
+  motion all                        render all classic topics
+
+Debug:
+  motion 36 --dry-run               print command without rendering
+
+EOF
+}
+
+if [[ $# -lt 1 || "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+  usage
+  exit 0
+fi
+
+cd "$ROOT"
+
+if [[ "${1:-}" == "--topic" ]]; then
+  if [[ $# -lt 2 ]]; then
+    echo "Usage: motion --topic <id> [options]" >&2
+    exit 2
+  fi
+  target="$2"
+  shift 2
+else
+  target="$1"
+  shift
+fi
+
+dry_run=0
+declare -a args=()
+for arg in "$@"; do
+  if [[ "$arg" == "--dry-run" ]]; then
+    dry_run=1
+  else
+    args+=("$arg")
+  fi
+done
+
+run_or_print() {
+  if [[ "$dry_run" -eq 1 ]]; then
+    printf '%s ' "$@"
+    printf '\n'
+  else
+    exec "$@"
+  fi
+}
+
+run_with_args() {
+  if [[ "${#args[@]}" -gt 0 ]]; then
+    run_or_print "$@" "${args[@]}"
+  else
+    run_or_print "$@"
+  fi
+}
+
+case "$target" in
+  36)
+    run_with_args "$PY" "$ROOT/render_motion.py" --topic 36
+    ;;
+  all)
+    run_with_args "$PY" "$ROOT/render.py" --all
+    ;;
+  *,*)
+    run_with_args "$PY" "$ROOT/render.py" --topics "$target"
+    ;;
+  *)
+    if [[ "$target" =~ ^[0-9]+$ ]]; then
+      run_with_args "$PY" "$ROOT/render.py" --topic "$target"
+      exit 0
+    fi
+    echo "Unknown motion target: $target" >&2
+    usage >&2
+    exit 2
+    ;;
+esac

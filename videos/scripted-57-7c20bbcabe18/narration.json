@@ -1,0 +1,50 @@
+[
+  {
+    "scene": 1,
+    "start": 0.0,
+    "end": 5.0,
+    "source_duration": 4.2,
+    "speed": 1.0,
+    "voiceover": "Cascade layers позволяют заранее задать порядок слоёв."
+  },
+  {
+    "scene": 2,
+    "start": 5.0,
+    "end": 17.0,
+    "source_duration": 4.488,
+    "speed": 1.0,
+    "voiceover": "Сначала сброс, затем база, компоненты и утилиты."
+  },
+  {
+    "scene": 3,
+    "start": 17.0,
+    "end": 32.0,
+    "source_duration": 4.608,
+    "speed": 1.0,
+    "voiceover": "Правило из более высокого слоя победит при меньшей специфичности."
+  },
+  {
+    "scene": 4,
+    "start": 32.0,
+    "end": 45.0,
+    "source_duration": 3.864,
+    "speed": 1.0,
+    "voiceover": "Так чужие стили не заставляют писать !important."
+  },
+  {
+    "scene": 5,
+    "start": 45.0,
+    "end": 55.0,
+    "source_duration": 4.44,
+    "speed": 1.0,
+    "voiceover": "Опиши порядок один раз и поддерживай его как архитектуру."
+  },
+  {
+    "scene": 6,
+    "start": 55.0,
+    "end": 59.041667000000004,
+    "source_duration": 3.672,
+    "speed": 1.0,
+    "voiceover": "Подпишись, чтобы не пропустить новые разборы."
+  }
+]

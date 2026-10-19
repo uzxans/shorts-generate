@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="/Users/tim/work/videoPro/shorts-generator"
+exec "$ROOT/venv/bin/python" "$ROOT/webui.py"

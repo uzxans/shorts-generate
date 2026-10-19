@@ -1,0 +1,11 @@
+.env
+.env.local
+.env.telegram
+telegram_bot/state/
+input/telegram/
+output/telegram/
+temp/telegram/
+models/piper/
+__pycache__/
+telegram_bot/
+*.pyc

@@ -1,0 +1,373 @@
+{
+  "id": 57,
+  "title": "Cascade Layers: управляем приоритетом CSS",
+  "language": "css",
+  "hook_text": "Меньше !important.\nБольше контроля.",
+  "voiceover": "Cascade layers позволяют заранее задать порядок слоёв. Сначала сброс, затем база, компоненты и утилиты. Правило из более высокого слоя победит при меньшей специфичности. Так чужие стили не заставляют писать !important. Опиши порядок один раз и поддерживай его как архитектуру.",
+  "code": "@layer reset, base, components, utilities;\n\n@layer components { .button { color: white; } }\n\n@layer utilities { .text-red { color: red; } }",
+  "demo_html": "",
+  "script_timeline": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "scene_type": "title",
+      "screen_text": "CSS-правила\nсоревнуются",
+      "voiceover": "Cascade layers позволяют заранее задать порядок слоёв.",
+      "animation": {
+        "preset": "reveal"
+      },
+      "transition_out": {
+        "type": "slide",
+        "duration": 0.55
+      },
+      "label": "CSS / CASCADE LAYERS"
+    },
+    {
+      "start": 5.0,
+      "end": 17.0,
+      "scene_type": "bento",
+      "screen_text": "Слои задают\nпорядок заранее",
+      "voiceover": "Сначала сброс, затем база, компоненты и утилиты.",
+      "animation": {
+        "preset": "expand"
+      },
+      "transition_out": {
+        "type": "slide",
+        "duration": 0.55
+      },
+      "note": "Порядок слоёв важнее специфичности"
+    },
+    {
+      "start": 17.0,
+      "end": 32.0,
+      "scene_type": "code",
+      "screen_text": "reset → base\n→ components → utilities",
+      "voiceover": "Правило из более высокого слоя победит при меньшей специфичности.",
+      "animation": {
+        "preset": "code_focus"
+      },
+      "transition_out": {
+        "type": "slide",
+        "duration": 0.55
+      },
+      "filename": "layers.css",
+      "code": "@layer reset, base, components, utilities;\n\n@layer components { .button { color: white; } }\n\n@layer utilities { .text-red { color: red; } }",
+      "highlights": [
+        1,
+        5
+      ],
+      "note": "Порядок объявляется одной строкой"
+    },
+    {
+      "start": 32.0,
+      "end": 45.0,
+      "scene_type": "gradient",
+      "screen_text": "Побеждает\nверхний слой",
+      "voiceover": "Так чужие стили не заставляют писать !important.",
+      "animation": {
+        "preset": "angle_spin",
+        "cycles": 2
+      },
+      "transition_out": {
+        "type": "crossfade",
+        "duration": 0.5
+      },
+      "note": "Меньше конфликтов"
+    },
+    {
+      "start": 45.0,
+      "end": 55.0,
+      "scene_type": "takeaway",
+      "screen_text": "Порядок слоёв —\nчасть архитектуры",
+      "voiceover": "Опиши порядок один раз и поддерживай его как архитектуру.",
+      "animation": {
+        "preset": "checklist"
+      },
+      "transition_out": {
+        "type": "slide",
+        "duration": 0.55
+      },
+      "points": [
+        "объяви порядок",
+        "раздели ответственность",
+        "меньше !important"
+      ],
+      "note": "Полезно в дизайн-системе"
+    }
+  ],
+  "key_points": "@layer задаёт порядок\nслои снижают конфликты\nменьше !important",
+  "cta_text": "У тебя есть порядок слоёв? 👇",
+  "render_mode": "scripted-motion",
+  "schema_version": 2,
+  "outro_start": 55.0,
+  "duration": 59.041667000000004,
+  "captions": [
+    {
+      "start": 0.22,
+      "end": 2.124749,
+      "words": [
+        {
+          "text": "Cascade",
+          "start": 0.22,
+          "end": 0.791416
+        },
+        {
+          "text": "layers",
+          "start": 0.791416,
+          "end": 1.267624
+        },
+        {
+          "text": "позволяют",
+          "start": 1.2676249999999998,
+          "end": 1.7080829999999998
+        },
+        {
+          "text": "заранее",
+          "start": 1.7080829999999998,
+          "end": 2.124749
+        }
+      ]
+    },
+    {
+      "start": 2.12475,
+      "end": 3.422374,
+      "words": [
+        {
+          "text": "задать",
+          "start": 2.12475,
+          "end": 2.5176250000000002
+        },
+        {
+          "text": "порядок",
+          "start": 2.5176250000000002,
+          "end": 2.886666
+        },
+        {
+          "text": "слоёв",
+          "start": 2.886666,
+          "end": 3.422374
+        }
+      ]
+    },
+    {
+      "start": 5.22,
+      "end": 7.184291,
+      "words": [
+        {
+          "text": "Сначала",
+          "start": 5.22,
+          "end": 5.803333
+        },
+        {
+          "text": "сброс",
+          "start": 5.803333,
+          "end": 6.208083
+        },
+        {
+          "text": "затем",
+          "start": 6.3271250000000006,
+          "end": 6.803333
+        },
+        {
+          "text": "база",
+          "start": 6.803333,
+          "end": 7.184291
+        }
+      ]
+    },
+    {
+      "start": 7.303333,
+      "end": 8.743791,
+      "words": [
+        {
+          "text": "компоненты",
+          "start": 7.303333,
+          "end": 8.005708
+        },
+        {
+          "text": "и",
+          "start": 8.005708,
+          "end": 8.160458
+        },
+        {
+          "text": "утилиты",
+          "start": 8.160458,
+          "end": 8.743791
+        }
+      ]
+    },
+    {
+      "start": 17.220000000000002,
+      "end": 18.696207,
+      "words": [
+        {
+          "text": "Правило",
+          "start": 17.220000000000002,
+          "end": 17.779541000000002
+        },
+        {
+          "text": "из",
+          "start": 17.779541000000002,
+          "end": 17.958082
+        },
+        {
+          "text": "более",
+          "start": 17.958083000000002,
+          "end": 18.279499
+        },
+        {
+          "text": "высокого",
+          "start": 18.279541000000002,
+          "end": 18.696207
+        }
+      ]
+    },
+    {
+      "start": 18.696208000000002,
+      "end": 19.993791,
+      "words": [
+        {
+          "text": "слоя",
+          "start": 18.696208000000002,
+          "end": 19.005708000000002
+        },
+        {
+          "text": "победит",
+          "start": 19.005708000000002,
+          "end": 19.446166
+        },
+        {
+          "text": "при",
+          "start": 19.446208000000002,
+          "end": 19.636666
+        },
+        {
+          "text": "меньшей",
+          "start": 19.636666,
+          "end": 19.993791
+        }
+      ]
+    },
+    {
+      "start": 19.993791,
+      "end": 20.886666,
+      "words": [
+        {
+          "text": "специфичности",
+          "start": 19.993791,
+          "end": 20.886666
+        }
+      ]
+    },
+    {
+      "start": 32.22,
+      "end": 33.386666,
+      "words": [
+        {
+          "text": "Так",
+          "start": 32.22,
+          "end": 32.505708
+        },
+        {
+          "text": "чужие",
+          "start": 32.505708,
+          "end": 32.910458
+        },
+        {
+          "text": "стили",
+          "start": 32.910458,
+          "end": 33.255708
+        },
+        {
+          "text": "не",
+          "start": 33.255708,
+          "end": 33.386666
+        }
+      ]
+    },
+    {
+      "start": 33.386666,
+      "end": 35.172374,
+      "words": [
+        {
+          "text": "заставляют",
+          "start": 33.386666,
+          "end": 33.898582
+        },
+        {
+          "text": "писать",
+          "start": 33.898582999999995,
+          "end": 34.315248999999994
+        },
+        {
+          "text": "important",
+          "start": 34.481916,
+          "end": 35.172374
+        }
+      ]
+    },
+    {
+      "start": 45.22,
+      "end": 46.803332999999995,
+      "words": [
+        {
+          "text": "Опиши",
+          "start": 45.22,
+          "end": 45.696208
+        },
+        {
+          "text": "порядок",
+          "start": 45.696208,
+          "end": 46.172374
+        },
+        {
+          "text": "один",
+          "start": 46.172374999999995,
+          "end": 46.458082999999995
+        },
+        {
+          "text": "раз",
+          "start": 46.458082999999995,
+          "end": 46.803332999999995
+        }
+      ]
+    },
+    {
+      "start": 46.803332999999995,
+      "end": 47.946207,
+      "words": [
+        {
+          "text": "и",
+          "start": 46.803332999999995,
+          "end": 46.946208
+        },
+        {
+          "text": "поддерживай",
+          "start": 46.946208,
+          "end": 47.529540999999995
+        },
+        {
+          "text": "его",
+          "start": 47.529540999999995,
+          "end": 47.731916
+        },
+        {
+          "text": "как",
+          "start": 47.731916,
+          "end": 47.946207
+        }
+      ]
+    },
+    {
+      "start": 47.946208,
+      "end": 48.672416,
+      "words": [
+        {
+          "text": "архитектуру",
+          "start": 47.946208,
+          "end": 48.672416
+        }
+      ]
+    }
+  ]
+}
